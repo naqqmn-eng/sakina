@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# CI shim: Gradle is installed by gradle/actions/setup-gradle before Flutter build.
+exec gradle "$@"
