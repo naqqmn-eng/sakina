@@ -28,7 +28,8 @@ class DhikrSelector extends StatelessWidget {
                 color: AppTheme.accent.withOpacity(0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.auto_awesome, color: AppTheme.accent, size: 22),
+              // التعديل 1: شلنا أيقونة النجمة وحطينا أيقونة كتاب - أنظف وأبعد عن شكل الذكاء الاصطناعي
+              child: const Icon(Icons.menu_book, color: AppTheme.accent, size: 22),
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -58,7 +59,8 @@ class DhikrSelector extends StatelessWidget {
               onPressed: () async {
                 final result = await showModalBottomSheet<String>(
                   context: context,
-                  backgroundColor: AppTheme.navyLight,
+                  // التعديل 2: القائمة صارت سوداء بدل الزيتي الفاقع
+                  backgroundColor: AppTheme.navy,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   ),

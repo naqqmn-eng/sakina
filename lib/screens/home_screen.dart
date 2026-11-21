@@ -122,10 +122,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         title: const Text('سَكِينة'),
         backgroundColor: AppTheme.navy,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
+          // التعديل 1: كلمة تصفير جنب زر التصفير
+          TextButton.icon(
             onPressed: _reset,
-            tooltip: 'تصفير العداد',
+            icon: const Icon(Icons.refresh, size: 20),
+            label: const Text(
+              'تصفير',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
+            style: TextButton.styleFrom(
+              foregroundColor: AppTheme.text,
+            ),
           ),
         ],
       ),
@@ -193,17 +200,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ),
             const SizedBox(height: 22),
-            // الزر الكبير - يظهر اسم الذكر ويهتز وينبض
+            // التعديل 2: الزر الكبير بدون أي أيقونة - نص فقط
             SizedBox(
               width: double.infinity,
               height: 62,
-              child: ElevatedButton.icon(
+              child: ElevatedButton(
                 onPressed: _increment,
-                icon: const Icon(Icons.favorite, size: 22),
-                label: Text(
-                  _dhikr,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.navyLight,
                   foregroundColor: AppTheme.text,
@@ -211,6 +213,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     borderRadius: BorderRadius.circular(18),
                     side: const BorderSide(color: AppTheme.accent),
                   ),
+                ),
+                child: Text(
+                  _dhikr,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             ),

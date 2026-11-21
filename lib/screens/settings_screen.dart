@@ -55,9 +55,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               secondary: const Icon(Icons.vibration_rounded, color: AppTheme.accent),
               title: const Text(
                 'الاهتزاز عند التسبيح',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: AppTheme.text),
               ),
-              subtitle: const Text('اهتزاز خفيف مع كل ضغطة'),
+              subtitle: const Text(
+                'اهتزاز خفيف مع كل ضغطة',
+                style: TextStyle(color: AppTheme.muted),
+              ),
               onChanged: (v) async {
                 setState(() => _haptics = v);
                 await widget.storage.saveHaptics(v);
@@ -67,39 +70,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           const SizedBox(height: 18),
-          Text(
-            'الهدف الافتراضي',
-            style: TextStyle(color: AppTheme.muted, fontWeight: FontWeight.w700, fontSize: 12),
-          ),
-          const SizedBox(height: 10),
-          Wrap(
-            spacing: 10,
-            children: AppConstants.targets.map((t) {
-              final selected = t == _target;
-              return ChoiceChip(
-                label: Text('$t'),
-                selected: selected,
-                onSelected: (_) async {
-                  setState(() => _target = t);
-                  await widget.storage.saveTarget(t);
-                  if (mounted) Navigator.pop(context, true);
-                },
-                selectedColor: AppTheme.accent,
-                backgroundColor: AppTheme.navyLight,
-                labelStyle: TextStyle(
-                  color: selected ? AppTheme.navy : AppTheme.text,
-                  fontWeight: FontWeight.bold,
-                ),
-              );
-            }).toList(),
-          ),
-          const SizedBox(height: 18),
+          // تم حذف أزرار الهدف من هنا - صارت موجودة في الشاشة الرئيسية فقط
           Card(
             color: AppTheme.card,
             child: ListTile(
               leading: const Icon(Icons.info_outline, color: AppTheme.accent),
-              title: const Text('الإصدار'),
-              subtitle: Text(AppConstants.appVersion),
+              title: const Text('الإصدار', style: TextStyle(color: AppTheme.text)),
+              subtitle: Text(AppConstants.appVersion, style: TextStyle(color: AppTheme.muted)),
             ),
           ),
         ],

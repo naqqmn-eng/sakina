@@ -24,7 +24,7 @@ class ProgressRing extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // هالة نبض القلب خلف الدائرة - كحلي هادي
+          // هالة نبض القلب خلف الدائرة - صارت زيتية هادية تلقائياً
           Container(
             width: size,
             height: size,
@@ -38,7 +38,7 @@ class ProgressRing extends StatelessWidget {
               ),
             ),
           ),
-          // الحلقة
+          // الحلقة - صارت زيتية
           SizedBox(
             width: size - 20,
             height: size - 20,
@@ -50,13 +50,13 @@ class ProgressRing extends StatelessWidget {
               strokeCap: StrokeCap.round,
             ),
           ),
-          // الدائرة الداخلية
+          // الدائرة الداخلية - التعديل هنا: من زيتي فاقع إلى أسود
           Container(
             width: size - 60,
             height: size - 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: AppTheme.navyLight,
+              color: AppTheme.navy,
               border: Border.all(color: AppTheme.outline, width: 1),
               boxShadow: [
                 BoxShadow(
@@ -68,7 +68,7 @@ class ProgressRing extends StatelessWidget {
             ),
             child: child,
           ),
-          // نقطة صغيرة فوق
+          // نقطة صغيرة فوق - زيتية
           Positioned(
             top: 7,
             child: Container(

@@ -13,6 +13,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      // الخلفية صارت سوداء تلقائياً لأن navy صار أسود
       backgroundColor: AppTheme.navy,
       child: ListView(
         padding: EdgeInsets.zero,
@@ -46,12 +47,12 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home, color: AppTheme.accent),
-            title: const Text('الرئيسية'),
+            title: const Text('الرئيسية', style: TextStyle(color: AppTheme.text)),
             onTap: () => Navigator.pop(context),
           ),
           ListTile(
             leading: const Icon(Icons.settings, color: AppTheme.accent),
-            title: const Text('الإعدادات'),
+            title: const Text('الإعدادات', style: TextStyle(color: AppTheme.text)),
             onTap: () async {
               Navigator.pop(context);
               if (onOpenSettings != null) {
@@ -68,7 +69,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help_outline, color: AppTheme.accent),
-            title: const Text('المساعدة والدعم'),
+            title: const Text('المساعدة والدعم', style: TextStyle(color: AppTheme.text)),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(
@@ -79,7 +80,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.info_outline, color: AppTheme.accent),
-            title: const Text('عن التطبيق'),
+            title: const Text('عن التطبيق', style: TextStyle(color: AppTheme.text)),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(
@@ -90,7 +91,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.share, color: AppTheme.accent),
-            title: const Text('مشاركة التطبيق'),
+            title: const Text('مشاركة التطبيق', style: TextStyle(color: AppTheme.text)),
             onTap: () {
               Navigator.pop(context);
               Share.share(
