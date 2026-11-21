@@ -34,7 +34,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    'تطبيق تسبيح بسيط وهادئ، يساعدك على الذكر في أي وقت، مع اهتزاز لطيف وعداد يوقف عند هدفك.',
+                    'تطبيق  بسيط وهادئ، يساعدك على الذكر في أي وقت، مع اهتزاز لطيف وعداد يوقف عند هدفك.',
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -47,7 +47,7 @@ class AboutScreen extends StatelessWidget {
             child: const ListTile(
               leading: Icon(Icons.info_outline, color: AppTheme.accent),
               title: Text('الإصدار'),
-              subtitle: Text('1.5.0'),
+              subtitle: Text('1.2.0'),
             ),
           ),
           Card(
@@ -55,7 +55,7 @@ class AboutScreen extends StatelessWidget {
             child: const ListTile(
               leading: Icon(Icons.person_outline, color: AppTheme.accent),
               title: Text('المطور'),
-              subtitle: Text('ᯓN-A-Qᯓ'),
+              subtitle: Text('ᯓN-A-Qᯓ | Nawaf '),
             ),
           ),
         ],
@@ -100,7 +100,7 @@ class HelpScreen extends StatelessWidget {
             child: const ListTile(
               leading: Icon(Icons.vibration, color: AppTheme.accent),
               title: Text('الاهتزاز ما يشتغل؟'),
-              subtitle: Text('روح للإعدادات وتأكد ان الاهتزاز شغال، واذا طفيته وشغلته بيشتغل على طول بدون ما تخرج من التطبيق.'),
+              subtitle: Text('روح للإعدادات وتأكد ان الاهتزاز شغال، .'),
             ),
           ),
           Card(
