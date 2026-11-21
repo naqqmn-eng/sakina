@@ -3,7 +3,6 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,12 +16,19 @@ jobs:
         with:
           flutter-version: '3.47.9'
           channel: 'stable'
+      - name: Create release keystore
+        run: |
+          keytool -genkeypair -v -keystore android/sakina-release.keystore -alias sakina -keyalg RSA -keysize 2048 -validity 10000 -storepass sakina1234 -keypass sakina1234 -dname "CN=Sakina, OU=NAQ, O=Sakina, C=YE"
+          echo "storePassword=sakina1234" > android/key.properties
+          echo "keyPassword=sakina1234" >> android/key.properties
+          echo "keyAlias=sakina" >> android/key.properties
+          echo "storeFile=sakina-release.keystore" >> android/key.properties
       - name: Get dependencies
         run: flutter pub get
-      - name: Build APK release arm64
-        run: flutter build apk --release --target-platform android-arm64
+      - name: Build Light APK arm64 only
+        run: flutter build apk --release --target-platform android-arm64 --split-per-abi --obfuscate --split-debug-info=build/debug-info --no-tree-shake-icons
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: sakina-v1.5.0-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: sakina-v1.5.0-light-apk
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
